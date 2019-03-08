@@ -8,10 +8,10 @@ public class LoginBox extends JFrame implements ActionListener{
 	
 	private JLabel userName;
 	private JLabel password;
-	private JTextField userField;
-	private JPasswordField passField;
-	private JButton signUp;
-	private JButton submit; 
+	public JTextField userField;
+	public JPasswordField passField;
+	private JButton Reset;
+	private JButton Login; 
 	
 	
 	public LoginBox(){
@@ -21,8 +21,8 @@ public class LoginBox extends JFrame implements ActionListener{
 		userField = new JTextField();
 		passField = new JPasswordField();
 		
-		signUp = new JButton("Sign Up");
-		submit = new JButton("submit");
+		Reset = new JButton("Reset");
+		Login = new JButton("Login");
 		GridLayout frame = new GridLayout(3,2,10,10);
 		
 		setLayout(frame);
@@ -31,12 +31,12 @@ public class LoginBox extends JFrame implements ActionListener{
 		add(userField);
 		add(password);
 		add(passField);
-		add(signUp);
-		add(submit);
+		add(Reset);
+		add(Login);
 		
 		
-		submit.addActionListener(this);
-		signUp.addActionListener(this);
+		Login.addActionListener(this);
+		Reset.addActionListener(this);
 		
 		super.setTitle("Login");
 		
@@ -54,14 +54,14 @@ public class LoginBox extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getSource() == submit){
+		if(e.getSource() == Login){
 			
 			
 			String n = userField.getText();
 			
 			String p = passField.getText();
 			
-			if(n.equals("a")&& p.equals("a")){
+			if(n.equals("admin")&& p.equals("admin")){
 				
 				second_layout sLayout = new second_layout();
 				this.dispose();
@@ -70,8 +70,9 @@ public class LoginBox extends JFrame implements ActionListener{
 			
 		}
 		
-		else if(e.getSource() == signUp){
-			System.out.println("Sign Up");
+		else if(e.getSource() == Reset){
+			userField.setText(null);
+			passField.setText(null);
 		}
 		else{
 			

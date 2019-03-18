@@ -17,6 +17,10 @@ import static org.junit.Assert.*;
  */
 public class LocalAccountHolderTest {
     
+    private LocalAccountHolder chkLA;
+    double withdrawBalance = 0.0;
+    double loanAmount = 0.0;
+    
     public LocalAccountHolderTest() {
     }
     
@@ -30,10 +34,12 @@ public class LocalAccountHolderTest {
     
     @Before
     public void setUp() {
+        chkLA= new LocalAccountHolder();
     }
     
     @After
     public void tearDown() {
+        chkLA=null;
     }
 
     /**
@@ -41,37 +47,31 @@ public class LocalAccountHolderTest {
      */
     @Test
     public void testWithdraw() {
-        System.out.println("withdraw");
-        double withdrawBalance = 0.0;
-        LocalAccountHolder instance = new LocalAccountHolder();
-        instance.withdraw(withdrawBalance);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkLA.withdraw(withdrawBalance);
+            System.out.println("withdraw works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
     }
+
+    
 
     /**
      * Test of recieveLoan method, of class LocalAccountHolder.
      */
     @Test
-    public void testRecieveLoan_0args() {
-        System.out.println("recieveLoan");
-        LocalAccountHolder instance = new LocalAccountHolder();
-        instance.recieveLoan();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of recieveLoan method, of class LocalAccountHolder.
-     */
-    @Test
-    public void testRecieveLoan_double() {
-        System.out.println("recieveLoan");
-        double loanAmount = 0.0;
-        LocalAccountHolder instance = new LocalAccountHolder();
-        instance.recieveLoan(loanAmount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testRecieveLoandbl() {
+        try {
+            chkLA.recieveLoan(loanAmount);
+            System.out.println("recieveLoan works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
     }
 
     /**
@@ -79,11 +79,14 @@ public class LocalAccountHolderTest {
      */
     @Test
     public void testPrintLoanBalance() {
-        System.out.println("printLoanBalance");
-        LocalAccountHolder instance = new LocalAccountHolder();
-        instance.printLoanBalance();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkLA.printLoanBalance();
+            System.out.println("printLoanBalance works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
     }
     
 }

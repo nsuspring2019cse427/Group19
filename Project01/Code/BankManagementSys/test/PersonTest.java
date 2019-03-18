@@ -17,6 +17,11 @@ import static org.junit.Assert.*;
  */
 public class PersonTest {
     
+    private Person person;
+    String name = "";
+    String expResult = "";
+    String result;
+    int phone = 0;
     public PersonTest() {
     }
     
@@ -30,10 +35,12 @@ public class PersonTest {
     
     @Before
     public void setUp() {
+        person=new Person();
     }
     
     @After
     public void tearDown() {
+        person=null;
     }
 
     /**
@@ -41,12 +48,13 @@ public class PersonTest {
      */
     @Test
     public void testSetName() {
-        System.out.println("setName");
-        String name = "";
-        Person instance = new Person();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            person.setName(name);
+            System.out.println("setName works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
     }
 
     /**
@@ -54,13 +62,14 @@ public class PersonTest {
      */
     @Test
     public void testGetName() {
-        System.out.println("getName");
-        Person instance = new Person();
-        String expResult = "";
-        String result = instance.getName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            result = person.getName();
+            assertEquals(expResult, result);
+            System.out.println("getName works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
     }
 
     /**
@@ -68,12 +77,13 @@ public class PersonTest {
      */
     @Test
     public void testSetPhone() {
-        System.out.println("setPhone");
-        int phone = 0;
-        Person instance = new Person();
-        instance.setPhone(phone);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            person.setPhone(phone);
+            System.out.println("setPhone works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
     }
 
     /**
@@ -81,13 +91,17 @@ public class PersonTest {
      */
     @Test
     public void testGetPhone() {
-        System.out.println("getPhone");
-        Person instance = new Person();
-        int expResult = 0;
-        int result = instance.getPhone();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
+        try {
+            int expRes=0;
+            int res=person.getPhone();
+            assertEquals(expRes, res);
+            System.out.println("getPhone works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
     }
 
     /**
@@ -95,11 +109,14 @@ public class PersonTest {
      */
     @Test
     public void testInputName() {
-        System.out.println("inputName");
-        Person instance = new Person();
-        instance.inputName();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            person.inputName();
+            System.out.println("inputName works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
     }
 
     /**
@@ -107,11 +124,13 @@ public class PersonTest {
      */
     @Test
     public void testInputPhone() {
-        System.out.println("inputPhone");
-        Person instance = new Person();
-        instance.inputPhone();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            person.inputPhone();
+            System.out.println("inputPhone works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
     }
 
     /**
@@ -119,11 +138,14 @@ public class PersonTest {
      */
     @Test
     public void testPrintName() {
-        System.out.println("printName");
-        Person instance = new Person();
-        instance.printName();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            person.printName();
+            System.out.println("printName works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
     }
 
     /**
@@ -131,11 +153,13 @@ public class PersonTest {
      */
     @Test
     public void testPrintPhone() {
-        System.out.println("printPhone");
-        Person instance = new Person();
-        instance.printPhone();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            person.printPhone();
+            System.out.println("printPhone works"); 
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
     }
     
 }

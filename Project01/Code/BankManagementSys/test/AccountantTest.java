@@ -71,5 +71,17 @@ public class AccountantTest {
             fail("Problem here in this method");
         }
     }
+
+    @Test
+    public void testGetAccountantId() {
+        try {
+             
+            int result = chkAcc.getAccountantId();
+            assertEquals(expResult, result);
+            System.out.println("getAccountantId works");
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+    }
     
 }

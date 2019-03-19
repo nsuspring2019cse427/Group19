@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -64,7 +67,8 @@ public class PersonTest {
     public void testGetName() {
         try {
             result = person.getName();
-            assertEquals(expResult, result);
+           // assertNotEquals(expResult, result);
+            assertThat(result, is(not(equalTo(expResult))));
             System.out.println("getName works"); 
             
         } catch (Exception e) {

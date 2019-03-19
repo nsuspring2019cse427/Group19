@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -69,7 +72,8 @@ public class SearchTest {
         try {
             int expResult=0;
             int result=search.searchAccountNumber(searchAccountNumber);
-            assertEquals(expResult, result);
+           // assertNotEquals(expResult, result);
+            assertThat(result, is(not(equalTo(expResult)))); //for hamcrest library I can use this
             System.out.println("setAccountantId works"); 
             
         } catch (Exception e) {

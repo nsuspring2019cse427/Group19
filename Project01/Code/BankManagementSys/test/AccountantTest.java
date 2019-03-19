@@ -77,7 +77,7 @@ public class AccountantTest {
         try {
              
             int result = chkAcc.getAccountantId();
-            assertEquals(expResult, result);
+            assertNotEquals(expResult, result);
             System.out.println("getAccountantId works");
         } catch (Exception e) {
             fail("Problem here in this method");

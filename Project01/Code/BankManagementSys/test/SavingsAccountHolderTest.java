@@ -17,6 +17,9 @@ import static org.junit.Assert.*;
  */
 public class SavingsAccountHolderTest {
     
+    int interestPercentage = 0;
+    private SavingsAccountHolder chkSAH;
+    
     public SavingsAccountHolderTest() {
     }
     
@@ -30,10 +33,12 @@ public class SavingsAccountHolderTest {
     
     @Before
     public void setUp() {
+        chkSAH=new SavingsAccountHolder();
     }
     
     @After
     public void tearDown() {
+        chkSAH=null;
     }
 
     /**
@@ -41,12 +46,13 @@ public class SavingsAccountHolderTest {
      */
     @Test
     public void testRecieveInterest() {
-        System.out.println("recieveInterest");
-        int interestPercentage = 0;
-        SavingsAccountHolder instance = new SavingsAccountHolder();
-        instance.recieveInterest(interestPercentage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkSAH.recieveInterest(interestPercentage);
+            System.out.println("recieveInterest works in SAH class");
+        } catch (Exception e) {
+            fail("Problem in this method of SAH class");
+        }
+        
     }
 
     /**
@@ -54,11 +60,13 @@ public class SavingsAccountHolderTest {
      */
     @Test
     public void testPrintInterestBalance() {
-        System.out.println("printInterestBalance");
-        SavingsAccountHolder instance = new SavingsAccountHolder();
-        instance.printInterestBalance();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkSAH.printInterestBalance();
+            System.out.println("printInterestBalance works in SAH class");
+        } catch (Exception e) {
+            fail("Problem in this method of SAH class");
+        }
+        
     }
     
 }

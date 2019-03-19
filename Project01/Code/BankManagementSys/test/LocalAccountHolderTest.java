@@ -88,5 +88,26 @@ public class LocalAccountHolderTest {
         }
         
     }
+
+    @Test
+    public void testRecieveLoanWithoutParameter() {
+        try {
+            chkLA.recieveLoan();
+            System.out.println("recieveLoan with parameter works");
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+    }
+
+    @Test
+    public void testRecieveLoanWithParameter() {
+        try {
+            chkLA.recieveLoan(loanAmount);
+            System.out.println("recieveLoan works");
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
+    }
     
 }

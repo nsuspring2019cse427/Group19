@@ -78,6 +78,52 @@ public class ForeignAccountHolderTest {
             fail("Problem here in this method");
         }
     }
+
+    @Test
+    public void testRecieveLoanWithoutParameter() {
+        try {
+            chkFa.recieveLoan();
+            System.out.println("recieveLoan works ");
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
+    }
+
+    @Test
+    public void testRecieveLoanWithParameter() {
+        try {
+            chkFa.recieveLoan(requestedLoanAmount);
+            System.out.println("recieveLoan with parameter works ");
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
+    }
+
+    @Test
+    public void testPrintInterestBalance() {
+        try {
+            chkFa.printInterestBalance();
+            System.out.println("printInterestBalance works ");
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+    }
+
+    @Test
+    public void testPrintLoanBalance() {
+        try {
+            chkFa.printLoanBalance();
+            System.out.println("printLoanBalance works ");
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+    }
    
     
 }

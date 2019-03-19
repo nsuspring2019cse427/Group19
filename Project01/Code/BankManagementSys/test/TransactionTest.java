@@ -53,7 +53,7 @@ public class TransactionTest {
     public void testGetTransactionId() {
         try {
             int result=trans.getTransactionId();
-            assertEquals(expResult, result);
+            assertNotEquals(expResult, result);
             System.out.println("getTransactionId works"); 
             
         } catch (Exception e) {

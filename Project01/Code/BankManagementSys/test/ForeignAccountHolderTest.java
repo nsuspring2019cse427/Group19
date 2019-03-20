@@ -124,6 +124,31 @@ public class ForeignAccountHolderTest {
             fail("Problem here in this method");
         }
     }
+
+    /**
+     * Test of recieveLoan method, of class ForeignAccountHolder.
+     */
+    @Test
+    public void testRecieveLoan_0args() {
+        System.out.println("recieveLoan");
+        ForeignAccountHolder instance = new ForeignAccountHolder();
+        instance.recieveLoan();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of recieveLoan method, of class ForeignAccountHolder.
+     */
+    @Test
+    public void testRecieveLoan_double() {
+        System.out.println("recieveLoan");
+        double requestedLoanAmount = 0.0;
+        ForeignAccountHolder instance = new ForeignAccountHolder();
+        instance.recieveLoan(requestedLoanAmount);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
    
     
 }

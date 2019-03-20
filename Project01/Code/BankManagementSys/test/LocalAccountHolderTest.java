@@ -109,5 +109,30 @@ public class LocalAccountHolderTest {
         }
         
     }
+
+    /**
+     * Test of recieveLoan method, of class LocalAccountHolder.
+     */
+    @Test
+    public void testRecieveLoan_0args() {
+        System.out.println("recieveLoan");
+        LocalAccountHolder instance = new LocalAccountHolder();
+        instance.recieveLoan();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of recieveLoan method, of class LocalAccountHolder.
+     */
+    @Test
+    public void testRecieveLoan_double() {
+        System.out.println("recieveLoan");
+        double loanAmount = 0.0;
+        LocalAccountHolder instance = new LocalAccountHolder();
+        instance.recieveLoan(loanAmount);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

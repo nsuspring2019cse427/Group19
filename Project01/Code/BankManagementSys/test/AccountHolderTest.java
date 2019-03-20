@@ -24,6 +24,7 @@ public class AccountHolderTest {
     int accountNumber = 0;
     double accountBalance = 0.0;
     double depositBalance = 0.0;
+    int expResult = 0;
     
     public AccountHolderTest() {
     }
@@ -38,7 +39,7 @@ public class AccountHolderTest {
     
     @Before
     public void setUp() {
-        chkAccountHolder = new AccountHolderImpl();
+        chkAccountHolder = new AccountHolderImp();
     }
     
     @After
@@ -162,7 +163,70 @@ public class AccountHolderTest {
         
     }
 
-    public class AccountHolderImpl extends AccountHolder {
+   
+
+    /**
+     * Test of recieveLoan method, of class AccountHolder.
+     */
+    @Test
+    public void testRecieveLoanWithoutParamtr() {
+        try {            
+            System.out.println("recieveLoan works");
+            chkAccountHolder.recieveLoan();
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+    }
+
+    /**
+     * Test of recieveLoan method, of class AccountHolder.
+     */
+    @Test
+    public void testRecieveLoanWithParamtr() {
+        try {            
+            System.out.println("recieveLoan works");
+            chkAccountHolder.recieveLoan(loanAmount);
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+    }
+
+    /**
+     * Test of getAccountNumber method, of class AccountHolder.
+     */
+    @Test
+    public void testGetAccountNumber() {
+        try {    
+            int result = chkAccountHolder.getAccountNumber();
+            assertEquals(expResult, result);
+            System.out.println("getAccountNumber works");
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
+    }
+
+    /**
+     * Test of getAccountBalance method, of class AccountHolder.
+     */
+    @Test
+    public void testGetAccountBalance() {
+        try {  
+            double expResult = 0.0;
+            double result = chkAccountHolder.getAccountBalance();
+            assertEquals(expResult, result, 0.0);            
+            System.out.println("getAccountBalance works");
+            
+        } catch (Exception e) {
+            fail("Problem here in this method");
+        }
+        
+    }
+
+    /**
+     *
+     */
+    public class AccountHolderImp extends AccountHolder {
 
         public void withdraw(double withdrawBalance) {
         }

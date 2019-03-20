@@ -105,9 +105,10 @@ public class TransactionTest {
     @Test
     public void testGetIsWithdraw() {
         try {
-            boolean expRes=false;
-            boolean result=trans.getIsWithdraw();
-            assertEquals(expRes, result);
+          //  boolean expRes=false;
+          //  boolean result=trans.getIsWithdraw();
+          //  assertEquals(expRes, result);
+            assertFalse(trans.getIsWithdraw());
             System.out.println("getIsWithdraw works"); 
             
         } catch (Exception e) {

@@ -130,11 +130,13 @@ public class ForeignAccountHolderTest {
      */
     @Test
     public void testRecieveLoan_0args() {
-        System.out.println("recieveLoan");
-        ForeignAccountHolder instance = new ForeignAccountHolder();
-        instance.recieveLoan();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkFa.recieveLoan();
+            System.out.println("recieveLoan");
+        } catch (Exception e) {
+            fail("Received Loan without parameter doesn't work");
+        }
+        
     }
 
     /**
@@ -142,12 +144,13 @@ public class ForeignAccountHolderTest {
      */
     @Test
     public void testRecieveLoan_double() {
-        System.out.println("recieveLoan");
-        double requestedLoanAmount = 0.0;
-        ForeignAccountHolder instance = new ForeignAccountHolder();
-        instance.recieveLoan(requestedLoanAmount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkFa.recieveLoan(requestedLoanAmount);
+            System.out.println("recieveLoan");
+        } catch (Exception e) {
+            fail("Received Loan with parameter works");
+        }
+        
     }
    
     

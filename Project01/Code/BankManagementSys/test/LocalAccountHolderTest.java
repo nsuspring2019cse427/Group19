@@ -115,11 +115,13 @@ public class LocalAccountHolderTest {
      */
     @Test
     public void testRecieveLoan_0args() {
-        System.out.println("recieveLoan");
-        LocalAccountHolder instance = new LocalAccountHolder();
-        instance.recieveLoan();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkLA.recieveLoan();
+             System.out.println("recieveLoan");
+        } catch (Exception e) {
+            fail("Received Loan without parameter doesn't work");
+        }
+        
     }
 
     /**
@@ -127,12 +129,13 @@ public class LocalAccountHolderTest {
      */
     @Test
     public void testRecieveLoan_double() {
-        System.out.println("recieveLoan");
-        double loanAmount = 0.0;
-        LocalAccountHolder instance = new LocalAccountHolder();
-        instance.recieveLoan(loanAmount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            chkLA.recieveLoan(loanAmount);
+             System.out.println("recieveLoan");
+        } catch (Exception e) {
+            fail("Received Loan with parameter works");
+        }
+        
     }
     
 }

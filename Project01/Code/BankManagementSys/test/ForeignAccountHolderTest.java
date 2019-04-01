@@ -10,17 +10,19 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  *
  * @author YEN_NISA
  */
 public class ForeignAccountHolderTest {
-    
-    private ForeignAccountHolder chkFa;
-    double withdrawBalance = 0.0;
-    double requestedLoanAmount = 0.0;
-    int interestPercentage = 0;
+    double withdrawBalance;
+    double requestedLoanAmount;
+    int interestPercentage;
+    ForeignAccountHolder instance;
     
     public ForeignAccountHolderTest() {
     }
@@ -35,123 +37,120 @@ public class ForeignAccountHolderTest {
     
     @Before
     public void setUp() {
-        chkFa=new ForeignAccountHolder();
+        instance = new ForeignAccountHolder();
     }
     
     @After
     public void tearDown() {
-        chkFa=null;
+        instance=null;
     }
 
     @Test
-    public void testWithdraw() {
+    public void testWithdrawWhileGreater() {
+      //  
         try {
-            chkFa.withdraw(withdrawBalance);
-            System.out.println("withdraw works"); 
-            
+           // withdrawBalance = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.withdraw(550);
+            System.out.println("withdraw method works while withdrawBalance = 550 greater than max shows warning");
         } catch (Exception e) {
-            fail("Problem here in this method");
+            fail("Withdraw method doesn't work ");
         }
         
     }
-
-
     @Test
-    public void testRecieveLoandbl() {
+    public void testWithdrawWhileLess() {
+      //  
         try {
-            chkFa.recieveLoan(requestedLoanAmount);
-            System.out.println("Recieve Loan works"); 
-            
+           // withdrawBalance = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.withdraw(50);
+            System.out.println("withdraw method works while withdrawBalance = 50 less than max shows warning");
         } catch (Exception e) {
-            fail("Problem here in this method");
+            fail("Withdraw method doesn't work ");
         }
         
     }
-
     @Test
-    public void testRecieveInterest() {
+    public void testWithdrawWhileNeg() {
+      //  
         try {
-            chkFa.recieveInterest(interestPercentage);
-            System.out.println("Recieve Interest works ");
-            
+           // withdrawBalance = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.withdraw(-50);
+            fail("withdraw works while ReceivedLoan = -50 means negative which wasn't supposed");
         } catch (Exception e) {
-            fail("Problem here in this method");
-        }
-    }
-
-    @Test
-    public void testRecieveLoanWithoutParameter() {
-        try {
-            chkFa.recieveLoan();
-            System.out.println("recieveLoan works ");
             
-        } catch (Exception e) {
-            fail("Problem here in this method");
         }
         
     }
-
     @Test
-    public void testRecieveLoanWithParameter() {
+    public void testWithdraw_WhileZero() {
+       
+       
         try {
-            chkFa.recieveLoan(requestedLoanAmount);
-            System.out.println("recieveLoan with parameter works ");
+          //  requestedLoanAmount = 550;
             
+            instance.withdraw(0);
+            System.out.println("withdraw works while ReceivedLoan = 0 which wasn't supposed");
         } catch (Exception e) {
-            fail("Problem here in this method");
+            fail("received loan method doesn't work ");
         }
-        
     }
-
     @Test
-    public void testPrintInterestBalance() {
+    public void testRecieveLoan_doubleWhileGreater() {
+       
+       
         try {
-            chkFa.printInterestBalance();
-            System.out.println("printInterestBalance works ");
+          //  requestedLoanAmount = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.recieveLoan(550);
+            System.out.println("received loan method works while ReceivedLoan = 550 greater than max shows warning");
+        } catch (Exception e) {
+            fail("received loan method doesn't work ");
+        }
+    }
+    @Test
+    public void testRecieveLoan_doubleWhileLess() {
+       
+       
+        try {
+          //  requestedLoanAmount = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.recieveLoan(50);
+            System.out.println("received loan works while ReceivedLoan = 50 Less than max");
+        } catch (Exception e) {
+            fail("received loan method doesn't work ");
+        }
+    }
+    @Test
+    public void testRecieveLoan_doubleWhileZero() {
+       
+       
+        try {
+          //  requestedLoanAmount = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.recieveLoan(0);
+            System.out.println("received loan works while ReceivedLoan = 0 which wasn't supposed");
+        } catch (Exception e) {
+            fail("received loan method doesn't work ");
+        }
+    }
+    @Test
+    public void testRecieveLoan_doubleWhileNeg() {
+       
+       
+        try {
+          //  requestedLoanAmount = 550;
+            ForeignAccountHolder instance = new ForeignAccountHolder();
+            instance.recieveLoan(-50);
+            fail("received loan works while ReceivedLoan = -50 means negative which wasn't supposed");
+        } catch (Exception e) {
             
-        } catch (Exception e) {
-            fail("Problem here in this method");
         }
     }
 
-    @Test
-    public void testPrintLoanBalance() {
-        try {
-            chkFa.printLoanBalance();
-            System.out.println("printLoanBalance works ");
-            
-        } catch (Exception e) {
-            fail("Problem here in this method");
-        }
-    }
 
-    /**
-     * Test of recieveLoan method, of class ForeignAccountHolder.
-     */
-    @Test
-    public void testRecieveLoan_0args() {
-        try {
-            chkFa.recieveLoan();
-            System.out.println("recieveLoan");
-        } catch (Exception e) {
-            fail("Received Loan without parameter doesn't work");
-        }
-        
-    }
-
-    /**
-     * Test of recieveLoan method, of class ForeignAccountHolder.
-     */
-    @Test
-    public void testRecieveLoan_double() {
-        try {
-            chkFa.recieveLoan(requestedLoanAmount);
-            System.out.println("recieveLoan");
-        } catch (Exception e) {
-            fail("Received Loan with parameter works");
-        }
-        
-    }
-   
+    
     
 }

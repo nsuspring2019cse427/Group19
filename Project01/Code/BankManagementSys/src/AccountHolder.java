@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public abstract class AccountHolder extends Person {
 	//declaring variables
-	private static int accountNumberSerial = 0;
+	private static int accountNumberSerial;
 	protected int accountNumber;
 	protected double accountBalance;
 	

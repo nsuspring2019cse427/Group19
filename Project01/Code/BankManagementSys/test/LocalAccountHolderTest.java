@@ -13,13 +13,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Yen
+ * @author YEN_NISA
  */
 public class LocalAccountHolderTest {
-    
-    private LocalAccountHolder chkLA;
-    double withdrawBalance = 0.0;
-    double loanAmount = 0.0;
+    double withdrawBalance;
+    LocalAccountHolder instance;
     
     public LocalAccountHolderTest() {
     }
@@ -34,108 +32,65 @@ public class LocalAccountHolderTest {
     
     @Before
     public void setUp() {
-        chkLA= new LocalAccountHolder();
+         instance = new LocalAccountHolder();
     }
     
     @After
     public void tearDown() {
-        chkLA=null;
+        instance=null;
     }
 
-    /**
-     * Test of withdraw method, of class LocalAccountHolder.
-     */
     @Test
-    public void testWithdraw() {
+    public void testWithdrawWhileLess(){
+        //System.out.println("withdraw");
         try {
-            chkLA.withdraw(withdrawBalance);
-            System.out.println("withdraw works"); 
-            
+            instance.accountBalance=5000;
+        instance.withdraw(400);
+        System.out.println("Withdraw works while withdraw balance is greater than account balance as supposed");
         } catch (Exception e) {
-            fail("Problem here in this method");
+            fail("The test case is a prototype.");
         }
-        
+   
+    }
+    @Test
+    public void testWithdrawWhileGreater(){
+        //System.out.println("withdraw");
+        try {
+            instance.accountBalance=5000;
+        instance.withdraw(6000);
+        System.out.println("Withdraw shows warning as withdraw balance is greater");
+        } catch (Exception e) {
+            fail("The test case is a prototype.");
+        }
+   
+    }
+    @Test
+    public void testWithdrawWhileZero(){
+        //System.out.println("withdraw");
+        try {
+            instance.accountBalance=5000;
+        instance.withdraw(0);
+        System.out.println("Withdraw continuw as zero");
+        } catch (Exception e) {
+            fail("The test case is a prototype.");
+        }
+   
+    }
+    @Test
+    public void testWithdrawWhileNeg(){
+        //System.out.println("withdraw");
+        try {
+            instance.accountBalance=5000;
+        instance.withdraw(-500);
+        fail("negative value. so test was suppossed to be failed here");
+        } catch (Exception e) {
+            
+        }
+   
     }
 
     
 
-    /**
-     * Test of recieveLoan method, of class LocalAccountHolder.
-     */
-    @Test
-    public void testRecieveLoandbl() {
-        try {
-            chkLA.recieveLoan(loanAmount);
-            System.out.println("recieveLoan works"); 
-            
-        } catch (Exception e) {
-            fail("Problem here in this method");
-        }
-        
-    }
-
-    /**
-     * Test of printLoanBalance method, of class LocalAccountHolder.
-     */
-    @Test
-    public void testPrintLoanBalance() {
-        try {
-            chkLA.printLoanBalance();
-            System.out.println("printLoanBalance works"); 
-            
-        } catch (Exception e) {
-            fail("Problem here in this method");
-        }
-        
-    }
-
-    @Test
-    public void testRecieveLoanWithoutParameter() {
-        try {
-            chkLA.recieveLoan();
-            System.out.println("recieveLoan with parameter works");
-        } catch (Exception e) {
-            fail("Problem here in this method");
-        }
-    }
-
-    @Test
-    public void testRecieveLoanWithParameter() {
-        try {
-            chkLA.recieveLoan(loanAmount);
-            System.out.println("recieveLoan works");
-        } catch (Exception e) {
-            fail("Problem here in this method");
-        }
-        
-    }
-
-    /**
-     * Test of recieveLoan method, of class LocalAccountHolder.
-     */
-    @Test
-    public void testRecieveLoan_0args() {
-        try {
-            chkLA.recieveLoan();
-             System.out.println("recieveLoan");
-        } catch (Exception e) {
-            fail("Received Loan without parameter doesn't work");
-        }
-        
-    }
-
-    /**
-     * Test of recieveLoan method, of class LocalAccountHolder.
-     */
-    @Test
-    public void testRecieveLoan_double() {
-        try {
-            chkLA.recieveLoan(loanAmount);
-             System.out.println("recieveLoan");
-        } catch (Exception e) {
-            fail("Received Loan with parameter works");
-        }
-        
-    }
+    
     
 }

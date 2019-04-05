@@ -3,8 +3,8 @@
 import javax.swing.JOptionPane;
 
 public class Person {
-	private String name;
-	private int phone;
+	protected String name;
+	protected int phone;
 	
 	Person(){
 		

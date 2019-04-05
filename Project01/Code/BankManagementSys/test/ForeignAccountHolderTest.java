@@ -49,7 +49,6 @@ public class ForeignAccountHolderTest {
     public void testWithdrawWhileGreater() {
       //  
         try {
-           // withdrawBalance = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.withdraw(550);
             System.out.println("withdraw method works while withdrawBalance = 550 greater than max shows warning");
@@ -62,7 +61,6 @@ public class ForeignAccountHolderTest {
     public void testWithdrawWhileLess() {
       //  
         try {
-           // withdrawBalance = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.withdraw(50);
             System.out.println("withdraw method works while withdrawBalance = 50 less than max shows warning");
@@ -75,7 +73,6 @@ public class ForeignAccountHolderTest {
     public void testWithdrawWhileNeg() {
       //  
         try {
-           // withdrawBalance = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.withdraw(-50);
             fail("withdraw works while ReceivedLoan = -50 means negative which wasn't supposed");
@@ -89,8 +86,6 @@ public class ForeignAccountHolderTest {
        
        
         try {
-          //  requestedLoanAmount = 550;
-            
             instance.withdraw(0);
             System.out.println("withdraw works while ReceivedLoan = 0 which wasn't supposed");
         } catch (Exception e) {
@@ -102,7 +97,6 @@ public class ForeignAccountHolderTest {
        
        
         try {
-          //  requestedLoanAmount = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.recieveLoan(550);
             System.out.println("received loan method works while ReceivedLoan = 550 greater than max shows warning");
@@ -115,7 +109,6 @@ public class ForeignAccountHolderTest {
        
        
         try {
-          //  requestedLoanAmount = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.recieveLoan(50);
             System.out.println("received loan works while ReceivedLoan = 50 Less than max");
@@ -128,7 +121,6 @@ public class ForeignAccountHolderTest {
        
        
         try {
-          //  requestedLoanAmount = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.recieveLoan(0);
             System.out.println("received loan works while ReceivedLoan = 0 which wasn't supposed");
@@ -141,7 +133,6 @@ public class ForeignAccountHolderTest {
        
        
         try {
-          //  requestedLoanAmount = 550;
             ForeignAccountHolder instance = new ForeignAccountHolder();
             instance.recieveLoan(-50);
             fail("received loan works while ReceivedLoan = -50 means negative which wasn't supposed");
@@ -150,7 +141,4 @@ public class ForeignAccountHolderTest {
         }
     }
 
-
-    
-    
 }

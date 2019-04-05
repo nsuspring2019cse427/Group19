@@ -2,7 +2,7 @@
 
 public class Accountant extends Person {
 	private static int accountantIdSerial;
-	private int accountantId;
+	protected int accountantId;
 	
 	Accountant() {
 		super();

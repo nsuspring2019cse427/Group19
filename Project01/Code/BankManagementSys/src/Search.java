@@ -2,10 +2,10 @@
 
 public class Search {
 	//declaring variables
-	private int accountHolder;
-	private static int accountHolderSerial;
+	protected int accountHolder;
+	protected static int accountHolderSerial;
 	private static int accountantSerial;
-	private int accountNumber[];
+	protected int accountNumber[];
 	
 	//constructor
 	Search(int accountHolder){

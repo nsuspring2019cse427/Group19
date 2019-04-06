@@ -4,27 +4,38 @@
  * and open the template in the editor.
  */
 
+import java.util.Arrays;
+import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 /**
  *
  * @author YEN_NISA
  */
+@RunWith(Parameterized.class)
+
+    
+    
 public class ForeignAccountHolderTest {
+    
+    private int expectedVal;
+    private int resultVal;
     double withdrawBalance;
     double requestedLoanAmount;
     int interestPercentage;
     ForeignAccountHolder instance;
     
-    public ForeignAccountHolderTest() {
+    public ForeignAccountHolderTest(boolean expected,int resultValue) {
+        this.expectedVal=expectedVal;
+        this.resultVal=resultVal;
     }
     
     @BeforeClass
@@ -45,100 +56,49 @@ public class ForeignAccountHolderTest {
         instance=null;
     }
 
+    
     @Test
-    public void testWithdrawWhileGreater() {
-      //  
-        try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.withdraw(550);
-            System.out.println("withdraw method works while withdrawBalance = 550 greater than max shows warning");
-        } catch (Exception e) {
-            fail("Withdraw method doesn't work ");
-        }
+    public void testWithdraw()
+    {
+        instance.accountBalance=1000;
+        instance.totalWithdrawAmount=0;
+        instance.maxWithdrawAmount=500;
         
-    }
-    @Test
-    public void testWithdrawWhileLess() {
-      //  
         try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.withdraw(50);
-            System.out.println("withdraw method works while withdrawBalance = 50 less than max shows warning");
+            assertTrue(instance.withdrawBool(400));//less than max withdraw amount
         } catch (Exception e) {
-            fail("Withdraw method doesn't work ");
         }
+    }
+    
+    @Test
+    public void testWithdraw1()
+    {
+        instance.accountBalance=1000;
+        instance.totalWithdrawAmount=0;
+        instance.maxWithdrawAmount=500;
         
-    }
-    @Test
-    public void testWithdrawWhileNeg() {
-      //  
         try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.withdraw(-50);
-            fail("withdraw works while ReceivedLoan = -50 means negative which wasn't supposed");
+            assertFalse(instance.withdrawBool(600));//greater than max withdraw amount
         } catch (Exception e) {
-            
-        }
-        
-    }
-    @Test
-    public void testWithdraw_WhileZero() {
-       
-       
-        try {
-            instance.withdraw(0);
-            System.out.println("withdraw works while ReceivedLoan = 0 which wasn't supposed");
-        } catch (Exception e) {
-            fail("received loan method doesn't work ");
         }
     }
-    @Test
-    public void testRecieveLoan_doubleWhileGreater() {
-       
-       
-        try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.recieveLoan(550);
-            System.out.println("received loan method works while ReceivedLoan = 550 greater than max shows warning");
-        } catch (Exception e) {
-            fail("received loan method doesn't work ");
-        }
-    }
-    @Test
-    public void testRecieveLoan_doubleWhileLess() {
-       
-       
-        try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.recieveLoan(50);
-            System.out.println("received loan works while ReceivedLoan = 50 Less than max");
-        } catch (Exception e) {
-            fail("received loan method doesn't work ");
-        }
-    }
-    @Test
-    public void testRecieveLoan_doubleWhileZero() {
-       
-       
-        try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.recieveLoan(0);
-            System.out.println("received loan works while ReceivedLoan = 0 which wasn't supposed");
-        } catch (Exception e) {
-            fail("received loan method doesn't work ");
-        }
-    }
-    @Test
-    public void testRecieveLoan_doubleWhileNeg() {
-       
-       
-        try {
-            ForeignAccountHolder instance = new ForeignAccountHolder();
-            instance.recieveLoan(-50);
-            fail("received loan works while ReceivedLoan = -50 means negative which wasn't supposed");
-        } catch (Exception e) {
-            
-        }
-    }
+    
+    
+    //Parameterized tests
+    
+//    @Parameters
+//    public static Collection<Object[]> testData()
+//    {
+//        Object[][] data=new Object[][]{{true,400},{true,500},{false,600}};
+//        return Arrays.asList(data);
+//    }
+//    @Test
+//    public void testWithdrawWithParameterized()
+//    {
+//        instance.accountBalance=1000;
+//        instance.totalWithdrawAmount=0;
+//        instance.maxWithdrawAmount=500;
+//        assertEquals(expectedVal, instance.withdrawBool(resultVal));
+//    }
 
 }

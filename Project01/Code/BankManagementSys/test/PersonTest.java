@@ -79,5 +79,61 @@ public class PersonTest {
         
     }
 
+    @Test
+    public void testSetName() {
+        System.out.println("setName");
+        String name = "";
+        Person instance = new Person();
+        instance.setName(name);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testSetPhone() {
+        System.out.println("setPhone");
+        int phone = 0;
+        Person instance = new Person();
+        instance.setPhone(phone);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testInputName() {
+        System.out.println("inputName");
+        Person instance = new Person();
+        instance.inputName();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testInputPhone() {
+        System.out.println("inputPhone");
+        Person instance = new Person();
+        instance.inputPhone();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testPrintName() {
+        System.out.println("printName");
+        Person instance = new Person();
+        instance.printName();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testPrintPhone() {
+        System.out.println("printPhone");
+        Person instance = new Person();
+        instance.printPhone();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     
 }

@@ -14,12 +14,13 @@ public class ForeignAccountHolder extends AccountHolder {
 	}
 
 	@Override
-	void withdraw(double withdrawBalance) {
+	public void withdraw(double withdrawBalance) {
 		if(withdrawBalance <= maxWithdrawAmount) {
 			if(totalWithdrawAmount <= maxWithdrawAmount) {
 				if(withdrawBalance <= this.accountBalance){
 					this.accountBalance -= withdrawBalance;
 					totalWithdrawAmount += withdrawBalance;
+                                        
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "Insufficient Balance !");
@@ -33,6 +34,30 @@ public class ForeignAccountHolder extends AccountHolder {
 		else {
 			JOptionPane.showMessageDialog(null, "Exceed Max Withdraw Limit!");
 		}
+	}
+        boolean withdrawBool(double withdrawBalance) {
+		if(withdrawBalance <= maxWithdrawAmount) {
+			if(totalWithdrawAmount <= maxWithdrawAmount) {
+				if(withdrawBalance <= this.accountBalance){
+					this.accountBalance -= withdrawBalance;
+					totalWithdrawAmount += withdrawBalance;
+                                        return true;
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Insufficient Balance !");
+                                        return false;
+				}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Stutus: Exceed Total Withdraw Amount!\n Total Max Withdraw: "
+			+ maxWithdrawAmount + "\nYou can: " + (maxWithdrawAmount - totalWithdrawAmount));
+			}
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Exceed Max Withdraw Limit!");
+                        return false;
+		}
+                return true;
 	}
 
 	@Override

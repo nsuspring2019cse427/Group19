@@ -11,6 +11,7 @@ public class SavingsAccountHolder extends LocalAccountHolder {
 		interestBalance = (this.accountBalance * interestPercentage) / 100;
 		this.accountBalance += interestBalance;
 	}
+        
 	
 	public void printInterestBalance() {
 		System.out.println("Interest Balance: " + interestBalance);

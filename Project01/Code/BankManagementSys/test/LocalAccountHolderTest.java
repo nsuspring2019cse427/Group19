@@ -19,6 +19,7 @@ public class LocalAccountHolderTest {
     double withdrawBalance;
     LocalAccountHolder instance;
     
+    
     public LocalAccountHolderTest() {
     }
     
@@ -44,9 +45,8 @@ public class LocalAccountHolderTest {
     public void testWithdrawWhileLess(){
         //System.out.println("withdraw");
         try {
-            instance.accountBalance=5000;
-        instance.withdraw(400);
-        System.out.println("Withdraw works while withdraw balance is greater than account balance as supposed");
+            double expected=instance.accountBalance=5000;
+            assertTrue(instance.withdrawBool(400));        
         } catch (Exception e) {
             fail("The test case is a prototype.");
         }
@@ -54,11 +54,10 @@ public class LocalAccountHolderTest {
     }
     @Test
     public void testWithdrawWhileGreater(){
-        //System.out.println("withdraw");
+        
         try {
-            instance.accountBalance=5000;
-        instance.withdraw(6000);
-        System.out.println("Withdraw shows warning as withdraw balance is greater");
+            double expected=instance.accountBalance=5000;
+            assertFalse(instance.withdrawBool(6000));
         } catch (Exception e) {
             fail("The test case is a prototype.");
         }
@@ -68,25 +67,22 @@ public class LocalAccountHolderTest {
     public void testWithdrawWhileZero(){
         //System.out.println("withdraw");
         try {
-            instance.accountBalance=5000;
-        instance.withdraw(0);
-        System.out.println("Withdraw continuw as zero");
+            double expected=instance.accountBalance=5000;
+            assertTrue(instance.withdrawBool(0));
         } catch (Exception e) {
             fail("The test case is a prototype.");
-        }
+        }       
    
     }
     @Test
     public void testWithdrawWhileNeg(){
         //System.out.println("withdraw");
         try {
-            instance.accountBalance=5000;
-        instance.withdraw(-500);
-        fail("negative value. so test was suppossed to be failed here");
+            double expected=instance.accountBalance=5000;
+            assertFalse(instance.withdrawBool(-500));
         } catch (Exception e) {
-            
-        }
+            fail("The test case is a prototype.");
+        }   
    
     }
-
 }

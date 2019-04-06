@@ -20,7 +20,7 @@ import org.junit.runners.Parameterized.Parameters;
  *
  * @author YEN_NISA
  */
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 
     
     
@@ -32,11 +32,14 @@ public class ForeignAccountHolderTest {
     double requestedLoanAmount;
     int interestPercentage;
     ForeignAccountHolder instance;
-    
-    public ForeignAccountHolderTest(boolean expected,int resultValue) {
-        this.expectedVal=expectedVal;
-        this.resultVal=resultVal;
+    public ForeignAccountHolderTest() {
+        
     }
+    
+//    public ForeignAccountHolderTest(boolean expected,int resultValue) {
+//        this.expectedVal=expectedVal;
+//        this.resultVal=resultVal;
+//    }
     
     @BeforeClass
     public static void setUpClass() {

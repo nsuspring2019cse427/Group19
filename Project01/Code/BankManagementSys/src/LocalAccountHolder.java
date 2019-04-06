@@ -14,11 +14,20 @@ class LocalAccountHolder extends AccountHolder {
 
 	@Override
 	void withdraw(double withdrawBalance) {
-		if(withdrawBalance <= this.accountBalance){
+		if(withdrawBalance <= this.accountBalance && withdrawBalance>=0){
 			this.accountBalance -= withdrawBalance;
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Insufficient Balance !");
+		}		
+	}
+        boolean withdrawBool(double withdrawBalance) {
+		if(withdrawBalance <= this.accountBalance && withdrawBalance>=0){
+			this.accountBalance -= withdrawBalance;
+                        return true;
+		}
+		else{
+			return false;
 		}		
 	}
 

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -78,62 +79,48 @@ public class PersonTest {
         }
         
     }
-
+    
+    
+    
+    //Hamcrest
     @Test
-    public void testSetName() {
-        System.out.println("setName");
-        String name = "";
-        Person instance = new Person();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetNameHam() {
+        String expResult = "farhan";
+        instance.name="farhan";
+        String result=instance.getName();
+        try {
+            assertThat(expResult,equalTo(result));
+        } catch (Exception e) {
+            fail("Problem in GetName method");
+        }
+        
+    }
+    @Test
+    public void testGetNameforNullHam() {
+        String expResult = null;
+        instance.name=null;
+        String result=instance.getName();
+        try {
+            assertThat(expResult,equalTo(result));
+        } catch (Exception e) {
+            fail("Problem in GetName method while null");
+        }
+        
+    }
+    @Test
+    public void testGetPhoneHam() {
+        int expResult = 1234567;
+        instance.phone=1234567;
+        int result = instance.getPhone();
+        try {
+            assertThat(expResult,equalTo(result));
+        } catch (Exception e) {
+            fail("Problem in GetPhone method ");
+        }
+        
     }
 
-    @Test
-    public void testSetPhone() {
-        System.out.println("setPhone");
-        int phone = 0;
-        Person instance = new Person();
-        instance.setPhone(phone);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testInputName() {
-        System.out.println("inputName");
-        Person instance = new Person();
-        instance.inputName();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testInputPhone() {
-        System.out.println("inputPhone");
-        Person instance = new Person();
-        instance.inputPhone();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testPrintName() {
-        System.out.println("printName");
-        Person instance = new Person();
-        instance.printName();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testPrintPhone() {
-        System.out.println("printPhone");
-        Person instance = new Person();
-        instance.printPhone();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     
 }

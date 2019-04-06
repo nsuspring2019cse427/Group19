@@ -20,7 +20,7 @@ import org.junit.runners.Parameterized.Parameters;
  *
  * @author YEN_NISA
  */
-//@RunWith(Parameterized.class)
+@RunWith(Parameterized.class)
 
     
     
@@ -32,14 +32,16 @@ public class ForeignAccountHolderTest {
     double requestedLoanAmount;
     int interestPercentage;
     ForeignAccountHolder instance;
-    public ForeignAccountHolderTest() {
+    
+//    public ForeignAccountHolderTest() {
+//        
+//    }
+    
+    public ForeignAccountHolderTest(boolean expected,int resultValue) {
+        this.expectedVal=expectedVal;
+        this.resultVal=resultVal;
         
     }
-    
-//    public ForeignAccountHolderTest(boolean expected,int resultValue) {
-//        this.expectedVal=expectedVal;
-//        this.resultVal=resultVal;
-//    }
     
     @BeforeClass
     public static void setUpClass() {
@@ -89,19 +91,20 @@ public class ForeignAccountHolderTest {
     
     //Parameterized tests
     
-//    @Parameters
-//    public static Collection<Object[]> testData()
-//    {
-//        Object[][] data=new Object[][]{{true,400},{true,500},{false,600}};
-//        return Arrays.asList(data);
-//    }
-//    @Test
-//    public void testWithdrawWithParameterized()
-//    {
-//        instance.accountBalance=1000;
-//        instance.totalWithdrawAmount=0;
-//        instance.maxWithdrawAmount=500;
-//        assertEquals(expectedVal, instance.withdrawBool(resultVal));
-//    }
+    @Parameters
+    public static Collection<Object[]> testData()
+    {
+        
+        Object[][] data=new Object[][]{{true,400},{true,500},{false,600}};
+        return Arrays.asList(data);
+    }
+    @Test
+    public void testWithdrawWithParameterized()
+    {
+        instance.accountBalance=1000;
+        instance.totalWithdrawAmount=0;
+        instance.maxWithdrawAmount=500;
+        assertTrue(instance.withdrawBool(resultVal));
+    }
 
 }

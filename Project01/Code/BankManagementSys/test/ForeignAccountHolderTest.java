@@ -100,13 +100,13 @@ public class ForeignAccountHolderTest {
         Object[][] data=new Object[][]{{true,400},{true,500},{false,600}};
         return Arrays.asList(data);
     }
-//    @Test
-//    public void testWithdrawWithParameterized()
-//    {
-//        instance.setAccountBalance(1000);
-//        instance.totalWithdrawAmount=0;
-//        instance.maxWithdrawAmount=500;
-//        assertTrue(instance.withdrawBool(resultVal));
-//    }
+    @Test
+    public void testWithdrawWithParameterized()
+    {
+        instance.setAccountBalance(1000);
+        instance.totalWithdrawAmount=0;
+        instance.maxWithdrawAmount=500;
+        assertTrue(instance.withdraw(resultVal));
+    }
 
 }

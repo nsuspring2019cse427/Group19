@@ -69,8 +69,8 @@ public class PersonTest {
     }
     @Test
     public void testGetPhone() {
-        int expResult = 1234567;
-        instance.setPhone(1234567);
+        int expResult = 0;
+        instance.setPhone(239279140);
         int result = instance.getPhone();
         try {
             assertEquals(expResult, result);
@@ -109,7 +109,7 @@ public class PersonTest {
     }
     @Test
     public void testGetPhoneHam() {
-        int expResult = 1234567;
+        int expResult = 0;
         instance.setPhone(1234567);
         int result = instance.getPhone();
         try {

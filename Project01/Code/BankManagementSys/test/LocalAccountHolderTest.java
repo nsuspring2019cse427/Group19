@@ -34,6 +34,7 @@ public class LocalAccountHolderTest {
     @Before
     public void setUp() {
          instance = new LocalAccountHolder();
+         instance.setAccountBalance(1000.0);
     }
     
     @After
@@ -45,7 +46,7 @@ public class LocalAccountHolderTest {
     public void testWithdrawWhileLess(){
         //System.out.println("withdraw");
         try {
-            double expected=instance.accountBalance=5000;
+            
             assertTrue(instance.withdraw(400));        
         } catch (Exception e) {
             fail("The test case is a prototype.");
@@ -56,7 +57,7 @@ public class LocalAccountHolderTest {
     public void testWithdrawWhileGreater(){
         
         try {
-            double expected=instance.accountBalance=5000;
+            
             assertFalse(instance.withdraw(6000));
         } catch (Exception e) {
             fail("The test case is a prototype.");
@@ -67,7 +68,6 @@ public class LocalAccountHolderTest {
     public void testWithdrawWhileZero(){
         //System.out.println("withdraw");
         try {
-            double expected=instance.accountBalance=5000;
             assertTrue(instance.withdraw(0));
         } catch (Exception e) {
             fail("The test case is a prototype.");
@@ -78,7 +78,6 @@ public class LocalAccountHolderTest {
     public void testWithdrawWhileNeg(){
         //System.out.println("withdraw");
         try {
-            double expected=instance.accountBalance=5000;
             assertFalse(instance.withdraw(-500));
         } catch (Exception e) {
             fail("The test case is a prototype.");

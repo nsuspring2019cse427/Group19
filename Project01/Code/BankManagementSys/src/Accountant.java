@@ -1,7 +1,10 @@
+
+import javax.swing.JOptionPane;
+
 //package com.project.bankManagement;
 
 public class Accountant extends Person {
-	private static int accountantIdSerial;
+	protected static int accountantIdSerial;
 	protected int accountantId;
 	
 	Accountant() {
@@ -16,7 +19,12 @@ public class Accountant extends Person {
 	}
 	
 	public void setAccountantId(int accountantId) {
-		this.accountantId = accountantId;
+            if (accountantId>0) {
+                this.accountantId = accountantId;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	public int getAccountantId() {
 		return accountantId;

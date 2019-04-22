@@ -1,5 +1,3 @@
-//package com.project.bankManagement;
-
 import javax.swing.JOptionPane;
 
 public class BankOperation {

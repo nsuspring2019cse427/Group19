@@ -4,7 +4,7 @@ public class Search {
 	//declaring variables
 	protected int accountHolder;
 	protected static int accountHolderSerial;
-	private static int accountantSerial;
+	protected static int accountantSerial;
 	protected int accountNumber[];
 	
 	//constructor

@@ -2,16 +2,13 @@
 
 import javax.swing.JOptionPane;
 
-public abstract class AccountHolder extends Person {
+public class AccountHolder extends Person {
 	//declaring variables
-	private static int accountNumberSerial;
+	protected static int accountNumberSerial;
 	protected int accountNumber;
 	protected double accountBalance;
 	
-	//declaring abstract methods
-	abstract void withdraw(double withdrawBalance);
-	abstract void recieveLoan();
-	abstract void recieveLoan(double loanAmount);
+	
 	
 	//constructors
 	public AccountHolder() {
@@ -23,18 +20,35 @@ public abstract class AccountHolder extends Person {
 		super(name, phone);
 		accountNumberSerial++;
 		accountNumber = accountNumberSerial;
-		this.accountBalance = balance;
+                if(balance>0)
+                {
+                    this.accountBalance = balance;
+                }else
+                {
+                    JOptionPane.showMessageDialog(null, "Wrong Input!");
+                }
+		
 	}
 	
 	public void setAccountNumber(int accountNumber){
-		this.accountNumber = accountNumber;
+            if (accountNumber>0) {
+                this.accountNumber = accountNumber;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	public int getAccountNumber(){
 		return accountNumber;
 	}
 	
 	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
+            if (accountBalance>0) {
+                this.accountBalance = accountBalance;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	public double getAccountBalance(){
 		return accountBalance;
@@ -42,8 +56,19 @@ public abstract class AccountHolder extends Person {
 	
 	public void inputAccountBalance() {
 		String newAccountBalance = JOptionPane.showInputDialog(null, "Enter Balance:");
-		this.accountBalance = Double.parseDouble(newAccountBalance);
-		//JOptionPane.showMessageDialog(null, "Account Balance: " + accountBalance);
+		          try {
+                double accCheck=new Double(newAccountBalance);
+                              if (accCheck>0) {
+                                  this.accountBalance=accCheck;
+                              } else {
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                              }
+                              
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+//                          
+		
 	}
 	
 	public void printAccountNumber(){

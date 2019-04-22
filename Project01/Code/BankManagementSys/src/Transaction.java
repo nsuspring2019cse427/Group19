@@ -3,13 +3,13 @@
 import javax.swing.JOptionPane;
 
 public class Transaction {
-	private int transactionId;
-	private static int transactionIdSerial;
-	private int accountNumber;
-	private int accountantId;
-	private double previousBalance;
-	private boolean isWithdraw;
-	private double transactionBalance;
+	protected int transactionId;
+	protected static int transactionIdSerial;
+	protected int accountNumber;
+	protected int accountantId;
+	protected double previousBalance;
+	protected boolean isWithdraw;
+	protected double transactionBalance;
 	
 	Transaction(){
 		transactionIdSerial = transactionIdSerial + 1;
@@ -66,23 +66,69 @@ public class Transaction {
 	//input
 	public void inputIsWithdraw() {
 		String newIsWithdraw = JOptionPane.showInputDialog(null, "Enter 'true' to Withdraw or 'false' to Deposit: ");
-		this.isWithdraw = Boolean.parseBoolean(newIsWithdraw);
+		if(newIsWithdraw=="true" || newIsWithdraw=="false")
+                {
+                    this.isWithdraw = Boolean.parseBoolean(newIsWithdraw);
+                }else
+                {
+                       JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+                }
+                
 	}
 	public void inputPreviousBalance() {
 		String newPreviousBalance = JOptionPane.showInputDialog(null, "Enter Previous Balance: ");
-		this.previousBalance = Double.parseDouble(newPreviousBalance);
+                try {
+                double accCheck=new Double(newPreviousBalance);
+                if (accCheck<0) {
+                                  this.previousBalance=accCheck;
+                              } else {
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                              }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
+		
 	}
 	public void inputTransactionBalance() {
 		String newTransactionBalance = JOptionPane.showInputDialog(null, "Enter Transaction Balance: ");
-		this.transactionBalance = Double.parseDouble(newTransactionBalance);
+                try {
+                double accCheck=new Double(newTransactionBalance);
+                if (accCheck<0) {
+                                  this.transactionBalance=accCheck;
+                              } else {
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                              }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
 	}
 	public void inputAccountNumber() {
 		String newAccountNumber = JOptionPane.showInputDialog(null, "Enter Account Number: ");
-		this.accountNumber = Integer.parseInt(newAccountNumber);
+                
+                try {
+                int accCheck=new Integer(newAccountNumber);
+                if (accCheck<0) {
+                                  this.accountNumber=accCheck;
+                              } else {
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                              }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
 	}
 	public void inputAccountantId() {
 		String newAccountantId = JOptionPane.showInputDialog(null, "Enter Accountant ID: ");
-		this.accountantId = Integer.parseInt(newAccountantId);
+                
+                try {
+                int accCheck=new Integer(newAccountantId);
+                if (accCheck<0) {
+                                  this.accountantId=accCheck;
+                              } else {
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                              }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
 	}
 	
 	//printing info

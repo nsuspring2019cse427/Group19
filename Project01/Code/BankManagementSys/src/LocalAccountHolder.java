@@ -12,33 +12,32 @@ class LocalAccountHolder extends AccountHolder {
 		super(name, phone, balance);
 	}
 
-	@Override
-	void withdraw(double withdrawBalance) {
-		if(withdrawBalance <= this.accountBalance && withdrawBalance>=0){
-			this.accountBalance -= withdrawBalance;
-		}
-		else{
-			JOptionPane.showMessageDialog(null, "Insufficient Balance !");
-		}		
-	}
-        boolean withdrawBool(double withdrawBalance) {
+	
+	boolean withdraw(double withdrawBalance) {
 		if(withdrawBalance <= this.accountBalance && withdrawBalance>=0){
 			this.accountBalance -= withdrawBalance;
                         return true;
 		}
 		else{
-			return false;
+			JOptionPane.showMessageDialog(null, "Insufficient Balance !");
+                        return false;
 		}		
 	}
+        
 
-	@Override
+	
 	void recieveLoan() {
 		loanBalance = (this.accountBalance * 50) / 100;		
 	}
 
-	@Override
+	
 	void recieveLoan(double loanAmount) {
-		this.loanBalance = loanAmount;
+            if (loanAmount>0) {
+                this.loanBalance = loanAmount;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	
 	public void printLoanBalance() {

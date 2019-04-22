@@ -10,8 +10,16 @@ public class Person {
 		
 	}
 	Person(String name, int phone){
+            
+            
 		this.name = name;
-		this.phone = phone;
+                if(phone<0)
+                {
+                    this.phone=phone;
+                }else{
+                    JOptionPane.showMessageDialog(null, "Wrong Input!");
+                }
+		
 	}
 	
 	public void setName(String name){
@@ -22,22 +30,45 @@ public class Person {
 	}
 	
 	public void setPhone(int phone){
-		this.phone = phone;
+		if(phone<0)
+                {
+                    this.phone=phone;
+                }else{
+                    JOptionPane.showMessageDialog(null, "Wrong Input!");
+                }
 	}
 	public int getPhone(){
 		return phone;
 	}
 	
 	public void inputName() {
-		name = JOptionPane.showInputDialog(null, "Enter Name: ");
-		//JOptionPane.showMessageDialog(null, "Name: " + name);
+		          try {
+                              String NewName;
+                NewName = JOptionPane.showInputDialog(null, "Enter Name: ");
+                              
+                                  
+                                  name= new String(NewName.toCharArray());
+                              
+                
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	public void inputPhone() {
 		String newPhone;
 		try {
 			newPhone = JOptionPane.showInputDialog(null, "Enter Phone Number: ");
-			phone = Integer.parseInt(newPhone);
-			//JOptionPane.showMessageDialog(null, "Phone Number: " + phone);
+			
+                        if(newPhone.length()==11)
+                        {
+                            phone = Integer.parseInt(newPhone);
+                        }else
+                        {
+                            JOptionPane.showMessageDialog(null, "Wrong Input!");
+                        }
+                        
+			
 		}
 		catch(NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Wrong Input!");

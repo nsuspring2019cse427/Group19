@@ -49,7 +49,7 @@ public class AccountantTest {
     @Test
     public void testGetAccountantId() {
         int expResult = 1;
-        instance.accountantId=1;
+        instance.setAccountantId(1);
         int result = instance.getAccountantId();    
         try {
             assertEquals(expResult, result);
@@ -64,7 +64,8 @@ public class AccountantTest {
     public void testGetAccountIdHam()
     {
         int expResult = 1;
-        instance.accountantId=1;
+        instance.setAccountantId(1);
+        //instance.accountantId=1;
         int result = instance.getAccountantId();    
         try {
             assertThat(result,equalTo(result));
@@ -72,6 +73,9 @@ public class AccountantTest {
             fail("Problem in this GetAccountId method");
         }
     }
+
+    
+    
 
     
     

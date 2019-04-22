@@ -13,29 +13,8 @@ public class ForeignAccountHolder extends AccountHolder {
 		super();
 	}
 
-	@Override
-	public void withdraw(double withdrawBalance) {
-		if(withdrawBalance <= maxWithdrawAmount) {
-			if(totalWithdrawAmount <= maxWithdrawAmount) {
-				if(withdrawBalance <= this.accountBalance){
-					this.accountBalance -= withdrawBalance;
-					totalWithdrawAmount += withdrawBalance;
-                                        
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "Insufficient Balance !");
-				}
-			}
-			else {
-				JOptionPane.showMessageDialog(null, "Stutus: Exceed Total Withdraw Amount!\n Total Max Withdraw: "
-			+ maxWithdrawAmount + "\nYou can: " + (maxWithdrawAmount - totalWithdrawAmount));
-			}
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Exceed Max Withdraw Limit!");
-		}
-	}
-        boolean withdrawBool(double withdrawBalance) {
+	
+	public boolean withdraw(double withdrawBalance) {
 		if(withdrawBalance <= maxWithdrawAmount) {
 			if(totalWithdrawAmount <= maxWithdrawAmount) {
 				if(withdrawBalance <= this.accountBalance){
@@ -51,16 +30,17 @@ public class ForeignAccountHolder extends AccountHolder {
 			else {
 				JOptionPane.showMessageDialog(null, "Stutus: Exceed Total Withdraw Amount!\n Total Max Withdraw: "
 			+ maxWithdrawAmount + "\nYou can: " + (maxWithdrawAmount - totalWithdrawAmount));
+                                return false;
 			}
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Exceed Max Withdraw Limit!");
                         return false;
 		}
-                return true;
 	}
+        
 
-	@Override
+	
 	void recieveLoan() {
 		double newLoanBalance = (this.accountBalance * 15) / 100;
 		if(maxLoanAmount >= loanBalance ) {
@@ -71,7 +51,7 @@ public class ForeignAccountHolder extends AccountHolder {
 		}
 	}
 
-	@Override
+	
 	void recieveLoan(double requestedLoanAmount) {
 		if(maxLoanAmount >= requestedLoanAmount) {
 			this.loanBalance = requestedLoanAmount;
@@ -83,8 +63,14 @@ public class ForeignAccountHolder extends AccountHolder {
 	
 	
 	public void recieveInterest(int interestPercentage) {
-		interestBalance = (this.accountBalance * interestPercentage) / 100;
-		this.accountBalance += interestBalance;
+            if (interestPercentage>0) {
+                interestBalance = (this.accountBalance * interestPercentage) / 100;
+                this.accountBalance += interestBalance;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
+		
 	}
 	
 	public void printInterestBalance() {

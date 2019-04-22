@@ -46,7 +46,7 @@ public class PersonTest {
     @Test
     public void testGetName() {
         String expResult = "farhan";
-        instance.name="farhan";
+        instance.setName("farhan");
         String result=instance.getName();
         try {
             assertEquals(expResult, result);
@@ -58,7 +58,7 @@ public class PersonTest {
     @Test
     public void testGetNameforNull() {
         String expResult = null;
-        instance.name=null;
+        instance.setName(null);
         String result=instance.getName();
         try {
             assertEquals(expResult, result);
@@ -70,7 +70,7 @@ public class PersonTest {
     @Test
     public void testGetPhone() {
         int expResult = 1234567;
-        instance.phone=1234567;
+        instance.setPhone(1234567);
         int result = instance.getPhone();
         try {
             assertEquals(expResult, result);
@@ -86,7 +86,7 @@ public class PersonTest {
     @Test
     public void testGetNameHam() {
         String expResult = "farhan";
-        instance.name="farhan";
+        instance.setName("farhan");
         String result=instance.getName();
         try {
             assertThat(expResult,equalTo(result));
@@ -98,7 +98,7 @@ public class PersonTest {
     @Test
     public void testGetNameforNullHam() {
         String expResult = null;
-        instance.name=null;
+        instance.setName(null);
         String result=instance.getName();
         try {
             assertThat(expResult,equalTo(result));
@@ -110,7 +110,7 @@ public class PersonTest {
     @Test
     public void testGetPhoneHam() {
         int expResult = 1234567;
-        instance.phone=1234567;
+        instance.setPhone(1234567);
         int result = instance.getPhone();
         try {
             assertThat(expResult,equalTo(result));
@@ -120,6 +120,7 @@ public class PersonTest {
         
     }
 
+    
     
 
     

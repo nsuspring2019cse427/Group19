@@ -18,14 +18,24 @@ public class Transaction {
 	
 	//getter & setter method
 	public void setTransactionId(int transactionId){
-		this.transactionId = transactionId;
+            if (transactionId>0) {
+                this.transactionId = transactionId;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
+		
 	}
 	public int getTransactionId(){
 		return transactionId;
 	}
 	//account number
 	public void setAccountNumber(int accountNumber){
-		this.accountNumber = accountNumber;
+            if (accountNumber>0) {
+                this.accountNumber = accountNumber;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
+		
 	}
 	public int getAccountNumber(){
 		return accountNumber;
@@ -33,7 +43,12 @@ public class Transaction {
 	
 	//accountant id
 	public void setAccountantId(int accountantId){
-		this.accountantId = accountantId;
+            if (accountantId>0) {
+                this.accountantId = accountantId;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+            }
+		
 	}
 	public int getAccountantId() {
 		return accountantId;
@@ -41,7 +56,12 @@ public class Transaction {
 	
 	//previous balance
 	public void setPreviousBalance(double previousBalance){
-		this.previousBalance = previousBalance;
+            if (previousBalance>0) {
+                this.previousBalance = previousBalance;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	public double getPreviousBalance(){
 		return previousBalance;
@@ -66,7 +86,7 @@ public class Transaction {
 	//input
 	public void inputIsWithdraw() {
 		String newIsWithdraw = JOptionPane.showInputDialog(null, "Enter 'true' to Withdraw or 'false' to Deposit: ");
-		if(newIsWithdraw=="true" || newIsWithdraw=="false")
+		if(newIsWithdraw.equals("true") || newIsWithdraw.equals("false"))
                 {
                     this.isWithdraw = Boolean.parseBoolean(newIsWithdraw);
                 }else

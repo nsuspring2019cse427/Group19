@@ -12,17 +12,17 @@ public class Accountant extends Person {
 		accountantIdSerial++;
 		accountantId = accountantIdSerial;
 	}
-	Accountant(String name, int phone) {
+	Accountant(String name, String phone) {
 		super(name, phone);
 		accountantIdSerial++;
 		accountantId = accountantIdSerial;
 	}
 	
 	public void setAccountantId(int accountantId) {
-            if (accountantId>0) {
-                this.accountantId = accountantId;
+            if (accountantId>0) {   //node 1
+                this.accountantId = accountantId;   //node 2
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!");
+                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 3
             }
 		
 	}

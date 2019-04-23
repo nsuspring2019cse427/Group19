@@ -16,25 +16,25 @@ public class AccountHolder extends Person {
 		accountNumberSerial++;
 		accountNumber = accountNumberSerial;
 	}
-	public AccountHolder(String name, int phone, double balance) {
+	public AccountHolder(String name, String phone, double balance) {
 		super(name, phone);
 		accountNumberSerial++;
-		accountNumber = accountNumberSerial;
+		accountNumber = accountNumberSerial;    //node 1
                 if(balance>0)
                 {
-                    this.accountBalance = balance;
+                    this.accountBalance = balance;      //node 2
                 }else
                 {
-                    JOptionPane.showMessageDialog(null, "Wrong Input!");
+                    JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 3
                 }
 		
 	}
 	
 	public void setAccountNumber(int accountNumber){
-            if (accountNumber>0) {
-                this.accountNumber = accountNumber;
+            if (accountNumber>0) {  //node 4
+                this.accountNumber = accountNumber;     //node 5
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!");
+                JOptionPane.showMessageDialog(null, "Wrong Input!");   //node 6
             }
 		
 	}
@@ -56,19 +56,14 @@ public class AccountHolder extends Person {
 	
 	public void inputAccountBalance() {
 		String newAccountBalance = JOptionPane.showInputDialog(null, "Enter Balance:");
-		          try {
-                double accCheck=new Double(newAccountBalance);
-                              if (accCheck>0) {
-                                  this.accountBalance=accCheck;
-                              } else {
-                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
-                              }
-                              
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Wrong Input!");
+		          
+                double accCheck=Double.parseDouble(newAccountBalance);
+                            if (accCheck>0) {   //node 7
+                this.accountBalance=accCheck;   //node 8
+            } else {
+                                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 9
             }
-//                          
-		
+   
 	}
 	
 	public void printAccountNumber(){

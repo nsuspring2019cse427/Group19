@@ -69,9 +69,9 @@ public class PersonTest {
     }
     @Test
     public void testGetPhone() {
-        int expResult = 0;
-        instance.setPhone(239279140);
-        int result = instance.getPhone();
+        String expResult = "01969279140";
+        instance.setPhone("01969279140");
+        String result = instance.getPhone();
         try {
             assertEquals(expResult, result);
         } catch (Exception e) {
@@ -109,9 +109,9 @@ public class PersonTest {
     }
     @Test
     public void testGetPhoneHam() {
-        int expResult = 0;
-        instance.setPhone(1234567);
-        int result = instance.getPhone();
+        String expResult = "01969279140";
+        instance.setPhone("01969279140");
+        String result = instance.getPhone();
         try {
             assertThat(expResult,equalTo(result));
         } catch (Exception e) {
@@ -120,8 +120,5 @@ public class PersonTest {
         
     }
 
-    
-    
-    
     
 }

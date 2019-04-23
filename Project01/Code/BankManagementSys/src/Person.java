@@ -4,21 +4,16 @@ import javax.swing.JOptionPane;
 
 public class Person {
 	protected String name;
-	protected int phone;
+	protected String phone;
 	
 	Person(){
 		
 	}
-	Person(String name, int phone){
+	Person(String name, String phone){
             
             
 		this.name = name;
-                if(phone<0)
-                {
-                    this.phone=phone;
-                }else{
-                    JOptionPane.showMessageDialog(null, "Wrong Input!");
-                }
+                this.phone=phone;
 		
 	}
 	
@@ -29,15 +24,19 @@ public class Person {
 		return name;
 	}
 	
-	public void setPhone(int phone){
-		if(phone<0)
-                {
-                    this.phone=phone;
-                }else{
-                    JOptionPane.showMessageDialog(null, "Wrong Input!");
-                }
+	public void setPhone(String phone){
+		
+                    if(phone.length()==11)  //node 1
+                        {
+                            this.phone=phone; //node 3
+                        }else
+                        {
+                            JOptionPane.showMessageDialog(null, "Wrong Input!"); //node 2
+                        }
+                
 	}
-	public int getPhone(){
+	public String getPhone(){
+            
 		return phone;
 	}
 	
@@ -57,22 +56,17 @@ public class Person {
 	}
 	public void inputPhone() {
 		String newPhone;
-		try {
+	
 			newPhone = JOptionPane.showInputDialog(null, "Enter Phone Number: ");
 			
                         if(newPhone.length()==11)
                         {
-                            phone = Integer.parseInt(newPhone);
+                            this.phone=newPhone;
                         }else
                         {
                             JOptionPane.showMessageDialog(null, "Wrong Input!");
                         }
-                        
-			
-		}
-		catch(NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Wrong Input!");
-		}
+		
 	}
 	
 	public void printName(){

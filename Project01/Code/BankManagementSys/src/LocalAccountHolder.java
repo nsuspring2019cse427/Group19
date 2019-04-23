@@ -8,18 +8,18 @@ class LocalAccountHolder extends AccountHolder {
 	public LocalAccountHolder() {
 		super();
 	}
-	public LocalAccountHolder(String name, int phone, double balance) {
+	public LocalAccountHolder(String name, String phone, double balance) {
 		super(name, phone, balance);
 	}
 
 	
 	boolean withdraw(double withdrawBalance) {
-		if(withdrawBalance <= this.accountBalance && withdrawBalance>=0){
-			this.accountBalance -= withdrawBalance;
+		if(withdrawBalance <= this.accountBalance && withdrawBalance>=0){   //node 2 & //node 4
+			this.accountBalance -= withdrawBalance; //node 6
                         return true;
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Insufficient Balance !");
+			JOptionPane.showMessageDialog(null, "Insufficient Balance !");  //node 5
                         return false;
 		}		
 	}
@@ -32,10 +32,10 @@ class LocalAccountHolder extends AccountHolder {
 
 	
 	void recieveLoan(double loanAmount) {
-            if (loanAmount>0) {
-                this.loanBalance = loanAmount;
+            if (loanAmount>0) { //node 7
+                this.loanBalance = loanAmount;  //node 9
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!");
+                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 8
             }
 		
 	}

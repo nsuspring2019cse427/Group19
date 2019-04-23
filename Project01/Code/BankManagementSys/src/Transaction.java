@@ -18,10 +18,10 @@ public class Transaction {
 	
 	//getter & setter method
 	public void setTransactionId(int transactionId){
-            if (transactionId>0) {
-                this.transactionId = transactionId;
+            if (transactionId>0) {  //node 1
+                this.transactionId = transactionId; //node 3
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+                JOptionPane.showMessageDialog(null, "Wrong Input!");  //node 2
             }
 		
 	}
@@ -30,10 +30,10 @@ public class Transaction {
 	}
 	//account number
 	public void setAccountNumber(int accountNumber){
-            if (accountNumber>0) {
-                this.accountNumber = accountNumber;
+            if (accountNumber>0) {  //node 4
+                this.accountNumber = accountNumber; //node 6
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 5
             }
 		
 	}
@@ -43,10 +43,10 @@ public class Transaction {
 	
 	//accountant id
 	public void setAccountantId(int accountantId){
-            if (accountantId>0) {
-                this.accountantId = accountantId;
+            if (accountantId>0) {   //node 7 
+                this.accountantId = accountantId; //node 9
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 8
             }
 		
 	}
@@ -56,10 +56,10 @@ public class Transaction {
 	
 	//previous balance
 	public void setPreviousBalance(double previousBalance){
-            if (previousBalance>0) {
-                this.previousBalance = previousBalance;
+            if (previousBalance>0) {    //node 10
+                this.previousBalance = previousBalance;     //node 12
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!");
+                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 11
             }
 		
 	}
@@ -77,7 +77,12 @@ public class Transaction {
 	
 	//transaction balance
 	public void setTransactionBalance(double transactionBalance){
-		this.transactionBalance = transactionBalance;
+            if (transactionBalance>0) {
+                this.transactionBalance = transactionBalance;
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+            }
+		
 	}
 	public double getTransactionBalance(){
 		return transactionBalance;
@@ -86,23 +91,23 @@ public class Transaction {
 	//input
 	public void inputIsWithdraw() {
 		String newIsWithdraw = JOptionPane.showInputDialog(null, "Enter 'true' to Withdraw or 'false' to Deposit: ");
-		if(newIsWithdraw.equals("true") || newIsWithdraw.equals("false"))
+		if(newIsWithdraw.equals("true") || newIsWithdraw.equals("false"))   //node 13
                 {
-                    this.isWithdraw = Boolean.parseBoolean(newIsWithdraw);
+                    this.isWithdraw = Boolean.parseBoolean(newIsWithdraw);  //node 15
                 }else
                 {
-                       JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+                       JOptionPane.showMessageDialog(null, "Wrong Input!"); //node 16
                 }
                 
 	}
 	public void inputPreviousBalance() {
 		String newPreviousBalance = JOptionPane.showInputDialog(null, "Enter Previous Balance: ");
                 try {
-                double accCheck=new Double(newPreviousBalance);
-                if (accCheck<0) {
-                                  this.previousBalance=accCheck;
+                double accCheck=Double.parseDouble(newPreviousBalance);
+                if (accCheck>0) {   //node 17
+                                  this.previousBalance=accCheck;    //node 19
                               } else {
-                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!"); //node 18
                               }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Wrong Input!"); 
@@ -112,11 +117,11 @@ public class Transaction {
 	public void inputTransactionBalance() {
 		String newTransactionBalance = JOptionPane.showInputDialog(null, "Enter Transaction Balance: ");
                 try {
-                double accCheck=new Double(newTransactionBalance);
-                if (accCheck<0) {
-                                  this.transactionBalance=accCheck;
+                double accCheck=Double.parseDouble(newTransactionBalance);
+                if (accCheck>0) {   //node 20 def[accCheck]
+                                  this.transactionBalance=accCheck; //node 22   use[accCheck]
                               } else {
-                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");  //node 21
                               }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Wrong Input!"); 
@@ -126,25 +131,25 @@ public class Transaction {
 		String newAccountNumber = JOptionPane.showInputDialog(null, "Enter Account Number: ");
                 
                 try {
-                int accCheck=new Integer(newAccountNumber);
-                if (accCheck<0) {
-                                  this.accountNumber=accCheck;
+                int accCheck=Integer.parseInt(newAccountNumber);
+                if (accCheck>0) {   //node 20 def[accCheck]
+                                  this.accountNumber=accCheck;  //node 22 use[accCheck]
                               } else {
                                   JOptionPane.showMessageDialog(null, "Wrong Input!");
                               }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Wrong Input!"); 
+                JOptionPane.showMessageDialog(null, "Wrong Input!"); //node 21
             }
 	}
 	public void inputAccountantId() {
 		String newAccountantId = JOptionPane.showInputDialog(null, "Enter Accountant ID: ");
                 
                 try {
-                int accCheck=new Integer(newAccountantId);
-                if (accCheck<0) {
-                                  this.accountantId=accCheck;
+                int accCheck=Integer.parseInt(newAccountantId);
+                if (accCheck>0) {   //node 23 def[accCheck]
+                                  this.accountantId=accCheck;   //node 25 use[accCheck]
                               } else {
-                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");  //node 24 
                               }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Wrong Input!"); 

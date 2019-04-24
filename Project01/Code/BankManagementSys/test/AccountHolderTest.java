@@ -10,13 +10,30 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  *
  * @author Yen
  */
+
+@RunWith(MockitoJUnitRunner.class)
+
 public class AccountHolderTest {
     AccountHolder instance ;
+    
+    
+    @InjectMocks
+    AccountHolder ins= new AccountHolder();
+    
+    @Mock
+    AccountHolder acc;
+    
+    
+    
     public AccountHolderTest() {
     }
     
@@ -38,7 +55,12 @@ public class AccountHolderTest {
         instance=null;
     }
 
-    
+    @Test
+    public void MockTest()
+    {
+        acc.setAccountBalance(500.00);
+        
+    }
 
     @Test
     public void testGetAccountNumber() {

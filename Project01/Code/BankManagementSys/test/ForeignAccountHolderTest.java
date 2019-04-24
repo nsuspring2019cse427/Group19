@@ -15,7 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.junit.runner.RunWith;
@@ -28,7 +27,7 @@ import org.mockito.junit.MockitoRule;       // as we can't use to @RunWith in sa
  *
  * @author YEN_NISA
  */
-//@RunWith(MockitoJUnitRunner.class)
+
 
 @RunWith(Parameterized.class)
 

@@ -4,13 +4,24 @@
  * and open the template in the editor.
  */
 
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.Collection;
 import static org.hamcrest.CoreMatchers.equalTo;
+import org.junit.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 /**
  *
@@ -19,6 +30,12 @@ import static org.junit.Assert.*;
 public class PersonTest {
     
         Person instance;
+        
+    @InjectMocks
+    Person ins= new Person();
+    
+    @Mock
+    Person acc;
     
     public PersonTest() {
     }
@@ -119,6 +136,45 @@ public class PersonTest {
         }
         
     }
+
+    
+    //mockito
+    @Test
+    public void mockitoTestName()
+    {
+        try {
+            acc.setName("abc");
+            
+            
+                when(acc.getName()).thenReturn("abc");
+                
+                Assert.assertEquals(acc.getName(), "abc");
+                
+                verify(acc).setName("abc");
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    @Test
+    public void mockitoTestName1()
+    {
+        try {
+            acc.setName(null);
+            
+            
+                when(acc.getName()).thenReturn(null);
+                
+                Assert.assertEquals(acc.getName(), null);
+                
+                verify(acc).setName(null);
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
 
     
 }

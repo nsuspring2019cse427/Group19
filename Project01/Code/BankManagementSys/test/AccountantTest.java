@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 
-import org.hamcrest.core.IsEqual;
+import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.hamcrest.MatcherAssert.assertThat; 
-import static org.hamcrest.Matcher.*;
-import static org.hamcrest.CoreMatchers.equalTo;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 /**
  *
@@ -22,6 +21,12 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class AccountantTest {
     
         Accountant instance;
+        
+        @InjectMocks
+    Accountant ins= new Accountant();
+    
+    @Mock
+    Accountant acc;
     
     public AccountantTest() {
     }
@@ -73,10 +78,10 @@ public class AccountantTest {
             fail("Problem in this GetAccountId method");
         }
     }
+    
+    
+    
+    
+    
 
-    
-    
-    
-    
-    
 }

@@ -45,8 +45,13 @@ public class Person {
                               String NewName;
                 NewName = JOptionPane.showInputDialog(null, "Enter Name: ");
                               
+                                 if (NewName.isEmpty()) {
+                                  JOptionPane.showMessageDialog(null, "Wrong Input!");
+                              } else {
+                                     name= new String(NewName.toCharArray());
+                              }
+ 
                                   
-                                  name= new String(NewName.toCharArray());
                               
                 
             } catch (Exception e) {

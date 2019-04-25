@@ -7,9 +7,10 @@ public class SavingsAccountHolder extends LocalAccountHolder {
 		super();
 	}
 	
-	public void recieveInterest(int interestPercentage) {
+	public double recieveInterest(double interestPercentage) {
 		interestBalance = (this.accountBalance * interestPercentage) / 100;
 		this.accountBalance += interestBalance;
+            return interestBalance;
 	}
         
 	

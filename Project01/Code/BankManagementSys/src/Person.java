@@ -62,8 +62,7 @@ public class Person {
 	public void inputPhone() {
 		String newPhone;
 	
-			newPhone = JOptionPane.showInputDialog(null, "Enter Phone Number: ");
-			
+			newPhone = JOptionPane.showInputDialog(null, "Enter Phone Number: ");			
                         if(newPhone.length()==11)
                         {
                             this.phone=newPhone;

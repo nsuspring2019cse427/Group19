@@ -39,13 +39,14 @@ public class TransactionTest {
         instance=null;
     }
 
-
+    
     @Test
-    public void testGetTransactionId() {
+    public void testGetAccountNumber() {
+        
         try {
-            instance.setTransactionId(2);
-        int expResult = 2;
-        int result = instance.getTransactionId();
+            instance.setAccountNumber(3);
+        int expResult = 3;
+        int result = instance.getAccountNumber();
         assertEquals(expResult, result);
         } catch (Exception e) {
             fail("The test case is a prototype.");
@@ -54,14 +55,13 @@ public class TransactionTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-
-
+    
     @Test
-    public void testGetAccountNumber() {
+    public void testGetAccountNumber1() {
         
         try {
-            instance.setAccountNumber(3);
-        int expResult = 3;
+            instance.setAccountNumber(-3);
+        int expResult = 0;
         int result = instance.getAccountNumber();
         assertEquals(expResult, result);
         } catch (Exception e) {
@@ -78,6 +78,21 @@ public class TransactionTest {
         try {
             instance.setAccountantId(2);
         int expResult = 2;
+        int result = instance.getAccountantId();
+        assertEquals(expResult, result);
+        } catch (Exception e) {
+            fail("The test case is a prototype.");
+        }
+        
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
+    
+    @Test
+    public void testGetAccountantId1() {
+        try {
+            instance.setAccountantId(-2);
+        int expResult = 0;
         int result = instance.getAccountantId();
         assertEquals(expResult, result);
         } catch (Exception e) {
@@ -104,6 +119,21 @@ public class TransactionTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
+    
+    @Test
+    public void testGetPreviousBalance1() {
+        try {
+            instance.setPreviousBalance(-1000.0);
+        double expResult = 0;
+        double result = instance.getPreviousBalance();
+        assertEquals(expResult, result, 0.0);
+        } catch (Exception e) {
+            fail("The test case is a prototype.");
+        }
+        
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
 
 
     @Test
@@ -111,6 +141,21 @@ public class TransactionTest {
         try {
             instance.setIsWithdraw(true);
         boolean expResult = true;
+        boolean result = instance.getIsWithdraw();
+        assertEquals(expResult, result);
+        } catch (Exception e) {
+            fail("The test case is a prototype.");
+        }
+        
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
+    
+    @Test
+    public void testGetIsWithdraw1() {
+        try {
+            instance.setIsWithdraw(false);
+        boolean expResult = false;
         boolean result = instance.getIsWithdraw();
         assertEquals(expResult, result);
         } catch (Exception e) {
@@ -129,6 +174,21 @@ public class TransactionTest {
         double expResult = 1000.0;
         double result = instance.getTransactionBalance();
         assertEquals(expResult, result, 1000.0);
+        } catch (Exception e) {
+            fail("The test case is a prototype.");
+        }
+        
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
+    
+    @Test
+    public void testGetTransactionBalance1() {
+        try {
+            instance.setTransactionBalance(-1000.0);
+        double expResult = 0;
+        double result = instance.getTransactionBalance();
+        assertEquals(expResult, result, 0.0);
         } catch (Exception e) {
             fail("The test case is a prototype.");
         }

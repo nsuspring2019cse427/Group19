@@ -77,9 +77,7 @@ public class ForeignAccountHolderTest {
     {
         
         instance.setAccountBalance(1000);
-        instance.setAccountNumber(1);        
-        instance.totalWithdrawAmount=0;
-        instance.maxWithdrawAmount=500;
+        instance.setAccountNumber(1); 
         
         try {
             assertTrue(instance.withdraw(400));//less than max withdraw amount
@@ -91,8 +89,6 @@ public class ForeignAccountHolderTest {
     public void testWithdraw1()
     {
         instance.setAccountBalance(1000);
-        instance.totalWithdrawAmount=0;
-        instance.maxWithdrawAmount=500;
         
         try {
             assertFalse(instance.withdraw(600));//greater than max withdraw amount
@@ -166,6 +162,23 @@ public class ForeignAccountHolderTest {
                 Assert.assertEquals(acc.withdraw(1000.0), false);
                 
                 verify(acc).withdraw(1000.0);
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    @Test
+    public void mockitoTest3()
+    {
+        try {
+            acc.setAccountBalance(1000.0);
+            
+                when(acc.withdraw(500.0)).thenReturn(true);
+                
+                Assert.assertEquals(acc.withdraw(500.0), true);
+                
+                verify(acc).withdraw(100.0);
         } catch (Exception e) {
         }
             

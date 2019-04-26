@@ -7,8 +7,6 @@
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
-import java.util.Collection;
 import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.Assert;
 import org.junit.After;
@@ -17,9 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -143,8 +138,7 @@ public class PersonTest {
     public void mockitoTestName()
     {
         try {
-            acc.setName("abc");
-            
+            acc.setName("abc");           
             
                 when(acc.getName()).thenReturn("abc");
                 
@@ -169,6 +163,40 @@ public class PersonTest {
                 Assert.assertEquals(acc.getName(), null);
                 
                 verify(acc).setName(null);
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    @Test
+    public void mockitoTestPhone()
+    {
+        try {
+            acc.setPhone("01969279140");
+            
+                when(acc.getName()).thenReturn("01969279140");
+                
+                Assert.assertEquals(acc.getName(), "01969279140");
+                
+                verify(acc).setName("01969279140");
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    @Test
+    public void mockitoTestPhone1()
+    {
+        try {
+            acc.setPhone("0196927");
+            
+                when(acc.getName()).thenReturn("");
+                
+                Assert.assertEquals(acc.getName(), "");
+                
+                verify(acc).setName("");
         } catch (Exception e) {
         }
             

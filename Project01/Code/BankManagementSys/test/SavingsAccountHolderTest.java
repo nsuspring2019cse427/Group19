@@ -63,7 +63,6 @@ public class SavingsAccountHolderTest {
     {
         try {
             acc.setAccountBalance(1000.0);
-            acc.interestBalance=0;  
                 when(acc.recieveInterest(2.5)).thenReturn(25.0);
                 verify(acc).recieveInterest(2.5);
         } catch (Exception e) {
@@ -77,7 +76,6 @@ public class SavingsAccountHolderTest {
     {
         try {
             acc.setAccountBalance(1000.0);
-            acc.interestBalance=0;  
                 when(acc.recieveInterest(0.0)).thenReturn(0.0);
                 verify(acc).recieveInterest(0.0);
         } catch (Exception e) {
@@ -91,7 +89,6 @@ public class SavingsAccountHolderTest {
     {
         try {
             acc.setAccountBalance(1000.0);
-            acc.interestBalance=0;  
                 when(acc.recieveInterest(-1.0)).thenReturn(0.0);
                 verify(acc).recieveInterest(0.0);
         } catch (Exception e) {

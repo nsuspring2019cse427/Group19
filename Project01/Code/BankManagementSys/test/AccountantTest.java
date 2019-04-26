@@ -66,7 +66,7 @@ public class AccountantTest {
         }        
         
     }
-    
+
     //Hamcrest
     @Test
     public void testGetAccountIdHam()

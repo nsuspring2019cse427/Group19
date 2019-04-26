@@ -148,4 +148,39 @@ public class LocalAccountHolderTest {
             
                         
     }
+    
+    @Test
+    public void mockitoTest1()
+    {
+        try {
+            acc.setAccountBalance(1000.0);
+            
+                when(acc.withdraw(-100.0)).thenReturn(false);
+                
+                Assert.assertEquals(acc.withdraw(-100.0), false);
+                
+                verify(acc).withdraw(100.0);
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    @Test
+    public void mockitoTest2()
+    {
+        try {
+            acc.setAccountBalance(1000.0);
+            
+                when(acc.withdraw(1000.0)).thenReturn(false);
+                
+                Assert.assertEquals(acc.withdraw(1000.0), false);
+                
+                verify(acc).withdraw(1000.0);
+        } catch (Exception e) {
+        }
+            
+                        
+    }   
+    
 }

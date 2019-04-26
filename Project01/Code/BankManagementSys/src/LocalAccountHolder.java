@@ -31,11 +31,12 @@ class LocalAccountHolder extends AccountHolder {
 	}
 
 	
-	void recieveLoan(double loanAmount) {
+	double recieveLoan(double loanAmount) {
             if (loanAmount>0) { //node 7
-                this.loanBalance = loanAmount;  //node 9
+                return this.loanBalance = loanAmount;  //node 9
             } else {
-                JOptionPane.showMessageDialog(null, "Wrong Input!");    //node 8
+                JOptionPane.showMessageDialog(null, "Wrong Input!");
+                return -1;//node 8
             }
 		
 	}

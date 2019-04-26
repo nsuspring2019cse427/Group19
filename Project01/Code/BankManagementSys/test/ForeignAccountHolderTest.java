@@ -20,8 +20,6 @@ import org.junit.runners.Parameterized.Parameters;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.junit.MockitoRule;       // as we can't use to @RunWith in same place
 
 /**
  *
@@ -128,8 +126,7 @@ public class ForeignAccountHolderTest {
     {
         try {
             acc.setAccountBalance(1000.0);
-            acc.totalWithdrawAmount=0;
-            acc.maxWithdrawAmount=500;
+            
                 when(acc.withdraw(100.0)).thenReturn(true);
                 
                 Assert.assertEquals(acc.withdraw(100.0), true);
@@ -140,5 +137,41 @@ public class ForeignAccountHolderTest {
             
                         
     }
+    
+    @Test
+    public void mockitoTest1()
+    {
+        try {
+            acc.setAccountBalance(1000.0);
+            
+                when(acc.withdraw(-100.0)).thenReturn(false);
+                
+                Assert.assertEquals(acc.withdraw(-100.0), false);
+                
+                verify(acc).withdraw(100.0);
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    @Test
+    public void mockitoTest2()
+    {
+        try {
+            acc.setAccountBalance(1000.0);
+            
+                when(acc.withdraw(1000.0)).thenReturn(false);
+                
+                Assert.assertEquals(acc.withdraw(1000.0), false);
+                
+                verify(acc).withdraw(1000.0);
+        } catch (Exception e) {
+        }
+            
+                        
+    }
+    
+    
 
 }

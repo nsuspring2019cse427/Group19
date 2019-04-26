@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
+import static org.mockito.Mockito.when;
+
 import static org.hamcrest.CoreMatchers.equalTo;
+import org.junit.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -70,7 +73,7 @@ public class AccountantTest {
     {
         int expResult = 1;
         instance.setAccountantId(1);
-        //instance.accountantId=1;
+        
         int result = instance.getAccountantId();    
         try {
             assertThat(result,equalTo(result));
@@ -83,5 +86,5 @@ public class AccountantTest {
     
     
     
-
+    
 }

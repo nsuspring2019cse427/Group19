@@ -16,6 +16,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.verify;
 
 /**
  *
@@ -25,7 +26,7 @@ public class AccountantTest {
     
         Accountant instance;
         
-        @InjectMocks
+       @InjectMocks
     Accountant ins= new Accountant();
     
     @Mock
@@ -33,6 +34,8 @@ public class AccountantTest {
     
     public AccountantTest() {
     }
+    
+
     
     @BeforeClass
     public static void setUpClass() {
@@ -82,9 +85,33 @@ public class AccountantTest {
         }
     }
     
+    @Test
+    public void testGetAccountIdHam1()
+    {
+        int expResult = 0;
+        instance.setAccountantId(-1);
+        
+        int result = instance.getAccountantId();    
+        try {
+            assertThat(result,equalTo(result));
+        } catch (Exception e) {
+            fail("Problem in this GetAccountId method");
+        }
+    }
     
-    
-    
+    @Test
+    public void testGetAccountIdHam2()
+    {
+        int expResult = 0;
+        instance.setAccountantId(0);
+        
+        int result = instance.getAccountantId();    
+        try {
+            assertThat(result,equalTo(result));
+        } catch (Exception e) {
+            fail("Problem in this GetAccountId method");
+        }
+    }
     
     
 }
